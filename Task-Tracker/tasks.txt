@@ -1,0 +1,19 @@
+Add, update and delete tasks
+Mark a task as in progress or done
+List all tasks
+List all that are done
+List those that are pending
+List all tasks in progress
+
+Each task should have the following properties
+	1. ID - unique identifier for the task
+	2. Description - short desc of the task
+	3. status - status of the task(done, in progress, incomplete)
+	4. createdAt - date and time when the task was created
+	5. updatedAt - date and time when the task was last updated
+
+Roadmap instructions:
+1. Create a new repo on Github
+2. Complete the project according to the requirements and push your code to the Github repository
+3. add a readme file with instructions to run the project and the https://roadmap.sh/projects/task-tracker
+4. Once done, submit your solution to help the others learn and get feedback from the community.
