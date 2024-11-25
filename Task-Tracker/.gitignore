@@ -1,0 +1,7 @@
+/__pycache__
+*.lock
+/.venv
+*.python-version
+CLI.py
+hello.py
+Project.py
