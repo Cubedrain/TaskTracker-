@@ -124,7 +124,9 @@ def main(
                         typer.style("No tasks added, enter in some tasks to list them out next time",fg=typer.colors.BRIGHT_MAGENTA,underline=True)
                     )
         except FileNotFoundError as error:
-            print(error)
+            with open("data.json",mode="x",encoding="utf-8") as write_file:
+                json.dump([],write_file)
+            typer.echo("Non-existent file -> created new,Run the command again after creating some tasks first")
     elif command.lower() == "update" or command.lower() == "update tasks":
         changed = False
         with open("data.json",mode="r",encoding="utf-8") as read_file:
@@ -167,6 +169,10 @@ def main(
                 typer.echo(
                     typer.style("No tasks made, create some tasks first",fg=typer.colors.BRIGHT_RED)
                 )
+            except FileNotFoundError:
+                with open("data.json",mode="x",encoding="utf-8") as write_file:
+                    json.dump([],write_file)
+                typer.echo("Non-existent file -> created new,Run the command again after creating some tasks")
     elif command.lower() == "delete" or command.lower() == "delete tasks":
         with open("data.json",mode="r",encoding="utf-8") as read_file:
             try:
@@ -200,6 +206,10 @@ def main(
                 typer.echo(
                     typer.style("No tasks created, enter some first to delete",typer.colors.BRIGHT_BLACK,underline=True)
                 )
+            except FileNotFoundError:
+                with open("data.json",mode="x",encoding="utf-8") as write_file:
+                    json.dump([],write_file)
+                typer.echo("Non-existent file -> created new,Run the command again but first create some tasks before executing the delete command")
 
 if __name__ == "__main__":
     typer.run(main)
